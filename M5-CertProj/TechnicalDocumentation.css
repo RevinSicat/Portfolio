@@ -1,0 +1,110 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 15%;
+    min-width: 15%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    min-width: 100px;
+}
+header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+#nav-list {
+    list-style-type: none;
+    padding: 0;
+}
+#nav-list li {
+    margin-bottom: 1rem;
+}
+.nav-link {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 0.5rem;
+}
+.nav-link:hover {
+    background-color: #555;
+}
+body {
+    margin-left: 17.5%;
+    font-family: Arial, sans-serif;
+    min-width: 82.5%;
+    max-width: 82.5%;
+}
+section {
+    border: 1px solid #333;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+p {
+    margin: 5px 0px 5px 0px;
+    padding: 0px;
+}
+code {
+    font-size: large;
+}
+#electrical_wiring_diagram img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+header, h3{
+    margin: 5px 0px 5px 0px;
+    padding: 0px;
+}
+.drl-subtopic-div {
+    border: 1px solid #333;
+    margin: 10px 0px 10px 0px;
+    padding: 0 10px 0 10px;
+    border-radius: 2.5px;
+}
+.drl-subtopic-example-comment{
+    color: #1e9347;
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+.drl-subtopic-example {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px 0px 10px 20px;
+    margin: 5px 20px 10px 0px;
+}
+.plc-symbols-div {
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+.plc-symbols-div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.plc-symbols-div div img {
+    max-height: 50px;
+}
+.plc-ladderlogic {
+    max-width: 100%;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        max-width: 25%;
+        min-width: 25%;
+    }
+    body {
+        margin-left: 27.5%;
+        min-width: 72.5%;
+        max-width: 72.5%;
+    }
+}

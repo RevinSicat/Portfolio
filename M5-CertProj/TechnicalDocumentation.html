@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Robot Cell Technical Documentation Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="TechnicalDocumentation.css">
+    </head>
+    <body>
+        <main id="main-doc">
+            <nav id="navbar">
+                <header>Robot Cell Technical Documentation</header>
+                <ul id="nav-list">
+                    <li><a class="nav-link" href="#introduction">Introduction</a></li>
+                    
+                    <li><a class="nav-link" href="#what_you_should_already_know">What you should already know</a></li>
+                    <li><a class="nav-link" href="#doosan_robot_language">Doosan Robot Language</a></li>
+                    <li><a class="nav-link" href="#electrical_wiring_diagram">Electrical Wiring Diagram</a></li>
+                    <li><a class="nav-link" href="#plc_ladder_logic_program">PLC Ladder Logic Program</a></li>
+                </ul>
+            </nav>
+            
+            <section class="main-section" id="introduction">
+                    <header>Introduction</header>
+                    <p>
+                    A Robot Cell is a controlled environment where an industrial  
+                    or collaborative robot (cobot) interacts with various components 
+                    to execute automated tasks. This documentation provides an overview 
+                    of the key elements of a robot cell, including its hardware, 
+                    electrical components, and human-machine interface (HMI) devices 
+                    </p>
+                    <p>
+                    In this documentation the cobot model used is Doosan Collaborative
+                    Robot (Cobot) M0609 which will be the instrument used to 
+                    interact/manipulate the environment. PLC model LS electric 
+                    XGB: XBC-DN32H which will be used in order to control the environment
+                    (Index table, Gantry) and other output components such as LEDs 
+                    Buzzer etc. HMI model is LS electric XGB link 7 inch HMI this will be
+                    used for the user to interact with the machine. 
+                    </p>
+            </section>
+
+            <section class="main-section" id="what_you_should_already_know">
+                <header>What you should already know</header>
+                <p>This guide assumes you have the following basic background:</p>
+                <ul>
+                    <li>
+                    Understanding of industrial and collaborative robots, 
+                    Coordinate systems (Cartesian, joint, tool, world)
+                    </li>
+                    <li>
+                    Basic knowledge of electrical circuits 
+                    (voltage, current, resistance), 
+                    Reading and interpreting electrical wiring diagrams, 
+                    Some familiarity with electrical components like relays, 
+                    fuses, and power supplies
+                    </li>
+                    <li>
+                    Critical thinking and problem-solving skills in order to
+                    create logical solutions to challenges
+                    </li>
+                </ul>
+            </section>
+
+            <section class="main-section" id="doosan_robot_language">
+                <header>Doosan Robot Language</header>
+                <p>
+                Doosan Robot Language (DRL) is a Python-based scripting language 
+                for programming Doosan collaborative robots. It enables users to 
+                control robot movements, interact with external devices, and 
+                automate tasks efficiently.
+                </p>
+                <div class="drl-basic-syntax">
+                    <h3>Basic Syntax</h3>
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Variables</b></p>
+                        <p class="drl-subtopic-description">
+                        variables are where you store information (e.g., positions, speeds, task details). 
+                        think of it as a container/box where the variable name is what the container is 
+                        called and the value is what is inside the container.
+                        </p>
+                        <p><b>Variable Basic Types:</b></p>
+                        <ul>
+                            <li><b>String</b> - Stores text values.</li>
+                            <li><b>Integer</b> - Stores whole numbers.</li>
+                            <li><b>Float</b> - Stores decimal numbers.</li>
+                            <li><b>Boolean</b> - Stores True or False values.</li>
+                        </ul>
+                        <p><b>Format</b></p>
+                        <p class="drl-sub-topic-format">VariableValue = VariableValue</p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            StrName = "John"<br>
+                            IntAge = 22<br>
+                            FltBalance = 1200.89<br>
+                            BolIsEldest = True
+                            </code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Comments</b></p>
+                        <p class="drl-subtopic-description">
+                        Comments helps describe the code. these wont be read by the program, 
+                        its like placing a label or explanation on your code
+                        </p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code class="drl-subtopic-example-comment">#This is a single line comment<br>
+                            ""<br>
+                            This is a multi-line comment<br>
+                            a multi-line comment<br>
+                            ""
+                            </code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Displaying Message on Teach Pendant</b></p>
+                        <p class="drl-subtopic-description">
+                        To show a message on the Teach Pendant (TP) screen. It can be used for 
+                        user notifications, debugging.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">tp_popup("Message", Type, Button Type)</p>
+                        <p><b>Where:</b></p>
+                        <ul>
+                            <li><b>Message (String)</b> - The text to display in the pop-up.</li>
+                            <li><b>Type (Integer, Optional)</b> -The type of pop-up window:<br>
+                                <b>0</b> - Information, <b>1</b> - Warning, <b>2</b> - Error.</li>
+                            <li><b>Button Type (Integer, Optional)</b> - button type of TP pop message:<br>
+                                <b>0</b> - show Stop and Resume button, <b>1</b> - show Stop button.</li>
+                        </ul>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code class="drl-subtopic-example-comment">#Will pop-up an information message</code><br>
+                            <code>tp_popup("Operation started")</code>
+                            <br>
+                            <code class="drl-subtopic-example-comment">#Will pop-up an Warning Message</code><br>
+                            <code>tp_popup("Check robot position before starting!", 1)</code>
+                            <br>
+                            <code class="drl-subtopic-example-comment">#Will pop-up an Error Message with Stop Buttoned</code><br>
+                            <code>tp_popup("Sensor error detected!", 1)</code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Lists/Arrays</b></p>
+                        <p class="drl-subtopic-description">
+                        A list (array) in DRL is used to store multiple values 
+                        in a single variable. Each value in the list can be 
+                        accessed using an index (starting from 0).
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">
+                        ListName = [Value1, Value2, Value3, ...]<br>
+                        #you can store as many values as you want in a list</p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code class="drl-subtopic-example-comment">
+                            #&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            0&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            1&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            2
+                            </code><br>
+                            <code>StrFruits = ["Apple", "Banana", "Cherry"]</code><br>
+                            <code class="drl-subtopic-example-comment">#will output "Banana"</code><br>
+                            <code>tp_popup(StrFruits[1])</code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Positions</b></p>
+                        <p class="drl-subtopic-description">
+                        <b>1. POSJ (Joint Position) – Angle-Based</b><br>
+                        Stores the position of the robot based on joint angles 
+                        rather than X, Y, Z coordinates. This is useful when you 
+                        need precise control over joint movements.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">posj(J1, J2, J3, J4, J5, J6)</p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>PosJHome = posj(90, 0, 90, 0, 90, 0)</code>
+                        </div>
+                        <b>2. POSX (Cartesian Position) – X, Y, Z Based</b><br>
+                        Stores the robot’s position in Cartesian coordinates 
+                        (X, Y, Z) along with rotation angles (Rx, Ry, Rz).	
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">posx(X, Y, Z, Rx, Ry, Rz)</p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>PosXHome = posx(0, 500, 300, 90, 180, 0)</code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>User Input</b></p>
+                        <p class="drl-subtopic-description">
+                        Used to receive input from the user through the Teach Pendant 
+                        (TP). This allows interaction during program execution, such 
+                        as entering values or making selections.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">
+                        tp_get_user_input("Message", InputType)
+                        </p>
+                        <p><b>Where:</b></p>
+                        <ul>
+                            <li><b>Message (String)</b> - The text to display in the prompt.</li>
+                            <li><b>InputType</b> - The type of variable to ask from the user:<br>
+                                <b>DR_VAR_INT</b>: - Integer type.<br>
+                                <b>DR_VAR_FLOAT</b>: - Number with decimals.<br>
+                                <b>DR_VAR_STR</b>: - String Type.<br>
+                                <b>DR_VAR_BOOL</b>: - boolean type.
+                            </li>
+                        </ul>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>StrUserName = tp_get_user_input("Hello, What is your name, DR_VAR_STR")</code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>If Statement</b></p>
+                        <p class="drl-subtopic-description">
+                        Used to execute a block of code only if a condition is met. 
+                        This helps the program make decisions.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">
+                        if (Condition):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;# Code to execute if condition is True<br>
+                        elif (Another_Condition):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;# Code to execute if previous condition was False but this one is True<br>
+                        else:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;# Code to execute if all conditions are False  
+                        </p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            IntTemperature = 75<br> 
+                            <br> 
+                            if IntTemperature > 80:<br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;tp_popup("Warning: High temperature!")<br> 
+                            elif IntTemperature < 60:<br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;tp_popup("Warning: Low temperature!")<br> 
+                            else:<br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;tp_popup("Temperature is normal.")
+                            </code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>For Loop</b></p>
+                        <p class="drl-subtopic-description">
+                        Used to repeat a block of code a set number of times. It 
+                        automatically increments a variable until it reaches a defined limit.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">
+                        for i in range(Count):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;# Code to repeat  
+                        </p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            for i in range(5)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;tp_popup(i)
+                            </code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Movement</b></p>
+                        <p class="drl-subtopic-description">
+                        <b>1. MOVEJ (Joint Movement) - Angle-Based</b><br>
+                        Moves the robot joint-by-joint to a target position. The motion follows 
+                        a smooth path based on the robot's joint configuration. Faster but less 
+                        predictable compared to linear motion.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">moveJ(TargetPosition, Velocity, Acceleration)</p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            homeposition = posj(90, 0, 90, 0, 90, 0)<br>
+                            movej(homeposition, 100, 200)
+                            </code>
+                        </div>
+                        <b>2. MOVEL (Linear Movement)</b><br>
+                        Moves the robot in a straight line to a target position. Ensures a 	
+                        predictable and precise path but is usually slower than MoveJ. Useful 
+                        for picking, placing, and avoiding obstacles.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">movel(TargetPosition, Velocity, Acceleration)</p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            position1 = posx(300, 200, 500, 0, 180, 0)<br>
+                            movel(position1 , 50, 100)
+                            </code>
+                        </div>
+                    </div>
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Setting Default Acceleration,Velocity</b></p>
+                        <p class="drl-subtopic-description">
+                        These Helps you shorten your code by setting a default acceleration 
+                        and velocity for your movement
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">
+                        set_accx(acceleration)<br>
+                        set_velx(velocity)<br>
+                        set_accj(acceleration)<br>
+                        set_velj(acceleration)
+                        </p>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code class="drl-subtopic-example-comment">#sets default acc for linear movement</code><br>
+                            <code>set_accx(acceleration)</code><br>
+                            <code class="drl-subtopic-example-comment">#sets default vel for linear movement</code><br>
+                            <code>set_velx(velocity)</code><br>
+                            <br>
+                            <code class="drl-subtopic-example-comment">#sets default acc for joint movement</code><br>
+                            <code>set_accj(acceleration)</code><br>
+                            <code class="drl-subtopic-example-comment">#sets default vel for joint movement</code><br>
+                            <code>set_velj(acceleration)</code> 
+                        </div>
+                    </div>
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Controlling End Effector</b></p>
+                        <p class="drl-subtopic-description">
+                        This command controls the digital output signals of the tool 
+                        (end-effector) in DRL. It is used to send signals to external 
+                        devices like grippers, vacuum systems, or sensors.
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">set_tool_digital_outputs(Address, Value)</p>
+                        <p><b>Where:</b></p>
+                        <ul>
+                            <li><b>Address</b> - The output port number.</li>
+                            <li><b>Value</b> - ON or OFF.</li>
+                        </ul>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code class="drl-subtopic-example-comment">#Opens Gripper</code><br>
+                            <code>
+                            set_tool_digital_outputs(1, ON)<br>
+                            set_tool_digital_outputs(2, OFF)
+                            </code><br>
+                            <br>
+                            <code class="drl-subtopic-example-comment">#Closes Gripper</code><br>
+                            <code>
+                            set_tool_digital_outputs(1, OFF)<br>
+                            set_tool_digital_outputs(2, ON)
+                            </code>
+                        </div>
+                    </div>
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>Trans Position</b></p>
+                        <p class="drl-subtopic-description">
+                        Used to translate (move) and/or rotate a given position (pos) 
+                        by a specified amount (delta). The result is then converted 
+                        into a reference coordinate (ref_out).
+                        </p>
+                        <p><b>Format</b></p>
+                        <p class="drl-subtopic-format">
+                        trans(Pos, Delta, Ref=None, Ref_out=DR_BASE, ori_type_out=DR_ELR_ZYX)</p>
+                        <p><b>Where:</b></p>
+                        <ul>
+                            <li><b>Pos</b> - Base position (Position Linear Variable).</li>
+                            <li><b>Delta</b> - Amount of Displament from the Base position 
+                            (must be a 6 value integer array or Position Linear Variable).
+                            </li>
+                        </ul>
+                        <p><b>Example</b></p>
+                        <div class="drl-subtopic-example">
+                            <code class="drl-subtopic-example-comment"># Defines Base position</code><br>
+                            <code>pos_start = [100, 200, 300, 0, 0, 0]</code><br>
+                            <code class="drl-subtopic-example-comment"># Defines Displacement position where the cobot moves down</code><br>
+                            <code>delta_move = [0, 0, -100, 0, 0, 0]</code><br>
+                            <code class="drl-subtopic-example-comment"># Move to the adjusted pos</code><br>
+                            <code>movel(trans(pos_start, delta_move))</code>
+                        </div>
+                    </div>
+                    <h3>Communication Functions Used to Communicate with PLC</h3>
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>PLC Communication(Write)</b></p>
+                        <p class="drl-subtopic-description">
+                        This function plc_write(data1, data2) is designed to send write 
+                        commands to a PLC using serial communication.
+                        </p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            def plc_write(data1,data2):  #data1 - Address of Device in PLC, data2 - Value to write/store in Address<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;if data1[1]=='W':<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data2 = format(int(data2), 'X').zfill(4)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data2='0' + data2<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;a = chr(5) + '00WSS0106%' + data1 + data2 + chr(4)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;b = []<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(a)):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.append(ord(a[i]))<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;ser = serial_open("COM_USB")<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;ser.write(bytearray(b)) <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;wait(0.05)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;serial_close(ser)<br>
+                            </code>
+                        </div>
+                    </div>
+
+                    <div class="drl-subtopic-div">
+                        <p class="drl-subtopic"><b>PLC Communication(Read)</b></p>
+                        <p class="drl-subtopic-description">
+                        This function plc_read(data1) is designed to send read 
+                        commands to a PLC using serial communication.
+                        </p>
+                        <div class="drl-subtopic-example">
+                            <code>
+                            def plc_read(data):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;a= chr(5) + '00RSS0106%' + data + chr(4)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;b=[]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(a)):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.append(ord(a[i]))<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;ser = serial_open("COM_USB") <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;ser.write(bytearray(b))<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;wait(0.05)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;rx = ser.read(ser.inWaiting())<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;rx = rx.decode()<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;if len(rx) == 13:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx1 = int(rx[11])<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rx1 = int(rx[10] + rx[11] + rx[12] + rx[13], 16) <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;serial_close(ser)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return rx1<br>
+                            </code>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <section class="main-section" id="electrical_wiring_diagram">
+                <header>Electrical wiring Diagram</header>
+                <h3>Main Power Wiring and Auto Mode Wiring Schematic</h3>
+                <p>
+                The purpose of this circuit is to use a push button to control the power flow to a PLC.<br><br>
+                In its Initial State, with no power flowing to the PLC, pressing the push button momentarily 
+                allows power to flow. <br><br>Relay RY3 acts as a latch, so even if the PB1 is pressed only briefly, 
+                it continuously allows power to flow as long as the RY3 latch remains engaged.<br><br>
+                When in Active State (power flowing to the PLC), pressing PB1 again cuts off the RY3 latch, 
+                which turn offs the power flowing to the PLC, returning the system to its initial state.
+                </p>
+                <img src="MainWiringAutoModeWiring.jpg" alt="Main Power Wiring and Auto Mode Wiring Schematic.jpg">
+                <h3>Manual Mode Wiring</h3>
+                <p>
+                In the initial state, the conveyor remains stationary.<br><br>
+                If S1 is triggered first, the FR (Forward) direction receives positive power while BR (Backward) 
+                is connected to negative power, causing the conveyor to move forward. When the conveyor reaches S2, 
+                it activates T3 (timer relay 3), which starts counting down and eventually cuts off all power, 
+                stopping the manual mode circuit. Conversely,<br><br>
+                
+                if S1 detects first in the opposite direction, BR receives positive power while FR is connected 
+                to negative, making the conveyor move backward. Upon reaching S2, the same process occurs—T3 is 
+                triggered, counts down, and shuts off power to stop the conveyor.
+                </p>
+                <img src="ManualModeWiring.jpg" alt="Manual Mode Wiring Schematic.jpg">
+            </section>
+            <section class="main-section" id="plc_ladder_logic_program">
+                <header>PLC Ladder Logic Program</header>
+                <h3>PLC Basic Ladder Logic Programming</h3>
+                <div class="plc-symbols-div">
+                    <div>
+                        <img src="PLC-NormallyOpenContact.png" alt="PLC-NormallyOpenContact.png">
+                        <p><b>Normally Open Contact</b>
+                        - Use when an input or condition should activate when the signal is ON.</p>
+                    </div>
+                    <div>    
+                        <img src="PLC-NormallyCloseContact.png" alt="PLC-NormallyCloseContact.png">
+                        <p><b>Normally Close Contact</b>
+                        - Use when an input or condition should activate when the signal is OFF.</p>
+                    </div>
+                    <div>
+                        <img src="PLC-Coil.png" alt="PLC-Coil.png">
+                        <p><b>Coil</b>
+                        - Standard output coil, Turns ON when the rung/input is active.</p>
+                    </div>
+                    <div>
+                        <img src="PLC-NegatedCoil.png" alt="PLC-NegatedCoil.png">
+                        <p><b>Negated Coil</b>
+                        - Inverted output coil, Turns OFF when the rung/input is active.</p>
+                    </div>
+                </div>
+                <h3>Index Table by Slot Rotation</h3>
+                <img class="plc-ladderlogic" src="PLC-IndexTableLadderLogic.png" alt="PLC-IndexTableLadderLogic.png">
+                <h3>Timed Buzzer</h3>
+                <img class="plc-ladderlogic" src="PLC-TimedBuzzerLadderLogic.png" alt="PLC-TimedBuzzerLadderLogic.png">
+            </section>
+        </main>
+    </body>
+</html>
