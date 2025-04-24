@@ -1,0 +1,452 @@
+/*for visualizing sections and div*/
+html, body, main {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+}
+section {
+    margin: 0;
+    padding: 7.5vh 0 0 0;
+    width: 100vw;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+div {
+    margin: 0;
+    padding: 0;
+}
+.content-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 16px 16px 4.5%;
+}
+.side-div {
+    flex: 1;
+    margin-left: -7.5%;
+}
+.double-column {
+    flex: 1;
+}
+/*Classes/Ids - Global*/
+* {
+    font-family: "Roboto", sans-serif;
+    color: #555;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("assests/img/BgImg-Body.jpg");
+}
+p, h1, h2, h3, h4, h5, ul, li{
+    margin: 0;
+    padding: 0;
+}
+.main-content-div {
+    flex: 1.5;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.left {
+    text-align: left;
+}
+.side-content-div {
+    flex: 0.75;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right {
+    text-align: right;
+}
+.indent {
+    padding-left: 2em;
+}
+.justify {
+    text-align: justify;
+}
+/*Classes/Ids - Navbar*/
+#navbar {
+    overflow: hidden;
+    background-image: url("assests/img/BgImg-Navbar.png");
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7.5vh;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#navbar ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+#navbar li {
+    list-style: none;
+    margin: 0 24px;
+}
+#navbar a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+/*Classes/Ids - Welcome Section*/
+#welcome-section{
+    display: flex;
+    align-items: center;
+}
+#welcome-section h1, #welcome-section p {
+    font-size: 250%;
+    margin-left:25%;
+    width: 100%;
+}
+/*Classes/Ids - Profile*/
+ul {
+    padding-left: 40px;
+}
+#profile {
+    display: flex;
+}
+.profile-div {
+    width: 90%;
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px 2vh 16px 16px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f7f7f7;
+}
+.split-content {
+    display: flex;
+}
+.split-content div{
+    flex: 1;
+}
+.profile-div div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0px;
+}
+#profile-img {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 16px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+/*Classes/Ids - Projects*/
+#projects h1{
+    padding-left: 5%;
+}
+.project-tile-div {
+    display: grid;
+    gap: 2.5%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 5%;
+    box-sizing: border-box;
+    height: auto;
+}
+.project-tile {
+    background-color: #f7f7f7;
+    width: 100%;
+    text-align: center; 
+    box-sizing: border-box;
+    border-radius: 16px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    height: auto;
+}
+.project-tile a{
+    height: auto;
+    text-decoration: none;
+}
+.project-tile a b{
+    font-size: large;
+}
+.project-tile a {
+    font-size: small;
+}
+.project-tile img {
+    text-align: center;
+    width: 100%;
+    height: 80%;
+    border-radius: 16px 16px 0 0;
+    box-sizing: border-box;
+}
+/*Classes/Ids - Certificates*/
+#certificate div h1{
+    padding-left: 5%;
+}
+.certificate-tile-div {
+    display: grid;
+    gap: 2.5%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 5%;
+    box-sizing: border-box;
+    height: auto;
+    max-width: 100%; 
+}
+.certificate-tile {
+    background-color: #f7f7f7;
+    text-align: center; 
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 16px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    height: auto;
+}
+.certificate-tile img {
+    text-align: center;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    box-sizing: border-box;
+    height: 90%;
+}
+/*Classes/Ids - Socials*/
+#socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120vh;
+    width: 100%;
+}
+#socials h1 {
+    font-size: 250%;
+    margin: 0 0 32px 0;
+    padding: 0;
+    text-align: center;
+}
+.socials-div {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.socials-div a {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    text-decoration: none;
+    font-size: 200%;
+    font-weight: bold;
+    height: 50px;
+}
+.socials-div img {
+    margin-right: 8px;
+    height: 100%;
+}
+/*Media for tablets*/
+#socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120vh;
+    width: 100%;
+}
+#socials h1 {
+    font-size: 250%;
+    margin: 0 0 32px 0;
+    padding: 0;
+    text-align: center;
+}
+.socials-div {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondrow-socials {
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+.socials-div a {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    text-decoration: none;
+    font-size: 200%;
+    font-weight: bold;
+    height: 50px;
+}
+.socials-div-nolink {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    text-decoration: none;
+    font-size: 200%;
+    font-weight: bold;
+    height: 50px;
+}
+.socials-div img {
+    margin-right: 8px;
+    height: 100%;
+}
+/*Media for tablets*/
+@media (max-width: 768px) {
+    section {
+        margin: 0; 
+        padding: 7.5vh 3vw 0 3vw; 
+        width: 100vw; 
+        height: max-content;
+        box-sizing: border-box;
+    }
+    #navbar li {
+        margin: 0 8px;
+        font-size: larger;
+    }
+    .project-tile-div {
+        display: grid;
+        gap: 2.5%;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 5%;
+        box-sizing: border-box;
+        height: auto;
+    }
+    .certificate-tile-div {
+        display: grid;
+        gap: 1%;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 5%;
+        box-sizing: border-box;
+        max-width: 100%;
+        height: auto;
+    }
+    .certificate-tile {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+        background-color: #f7f7f7;
+        border-radius: 16px;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .socials-div {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .side-div {
+        display: none;
+    }
+    .socials-div a {
+        display: flex;
+        align-items: center;
+        margin: 16px 0;
+        text-decoration: none;
+        font-size: 150%;
+        font-weight: bold;
+        height: 50px;
+    }
+    .socials-div {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    .secondrow-socials {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+    }
+}
+/*Media for mobile devices*/
+@media (max-width: 480px) {
+    section {
+        margin: 0; 
+        padding: 7.5vh 0 0 0; 
+        width: 100vw; 
+        height: auto;
+        box-sizing: border-box;
+    }
+    #navbar li {
+        margin: 0 8px;
+        font-size: small;
+    }
+    .project-tile-div {
+        display: grid;
+        gap: 2.5%;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 5%;
+        box-sizing: border-box;
+        height: auto;
+    }
+    .certificate-tile-div {
+        display: grid;
+        gap: 1%;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 5%;
+        box-sizing: border-box;
+        height: auto;
+    }
+    .side-div {
+        display: none;
+    }
+    .socials-div a {
+        display: flex;
+        align-items: center;
+        margin: 16px 0;
+        text-decoration: none;
+        font-size: 100%;
+        font-weight: bold;
+        height: 50px;
+    }
+    .socials-div {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    .secondrow-socials {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+    }
+    .socials-div-nolink {
+        display: flex;
+        align-items: center;
+        margin: 0 16px;
+        text-decoration: none;
+        font-size: 100%;
+        font-weight: bold;
+        height: 50px;
+    }
+}
