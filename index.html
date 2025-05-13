@@ -7,188 +7,82 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <main>
-            <header id="navbar">
-                <ul>
-                    <li><a href="#welcome-section">Welcome</a></li>
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certificate">Certificates</a></li>
-                    <li><a href="#socials">Socials</a></li>
-                </ul>
-            </header>
-            <section id="welcome-section">
-                <div>
-                    <h1>Portfolio</h1>
-                    <p>Sicat, Revin F.<br></p>
+        <header id="navbar">
+            <ul>
+                <li><a href="#welcome-section">Welcome</a></li>
+                <li><a href="#profile-section">Profile</a></li>
+                <li><a href="#portfolio-section">Portfolio</a></li>
+                <li><a href="#socials-section">Socials</a></li>
+            </ul>
+        </header>
+        <section id="welcome-section">
+            <div>
+                <h1 id="welcome-portfolio"></h1>
+                <p id="welcome-name"></p>
+            </div>
+        </section>
+        <section id="profile-section">
+            <div id="profile-details">
+                <div id="profile-introduction">
+                    <h1>Profile</h1>
+                    <p class="indent justify">Hi, my name is Revin Sicat. I’m a Computer Engineering graduate and a 
+                    former Instructor/Trainer for the Collaborative Robot Programming Level 
+                    III course. I am passionate about expanding my knowledge in programming 
+                    and eager to contribute meaningfully to the success of the company. </p>
                 </div>
-            </section>
-            <section id="profile">
-                <div class="content-div">
-                    <div>
-                        <div class="profile-div">
-                            <h1>Profile</h1>
-                            <p class="indent justify">Hi, my name is Revin Sicat. I’m a Computer Engineering graduate and a 
-                            former Instructor/Trainer for the Collaborative Robot Programming Level 
-                            III course. I am passionate about expanding my knowledge in programming 
-                            and eager to contribute meaningfully to the success of the company. </p>
-                        </div>
-                        <div class="profile-div">
-                            <h2>Job Experience</h2>
-                            <ul>
-                                <li>
-                                    <p>Oct 2024 - April 2025<br>
-                                    Southern Institute of Maritime Studies </p><hr>
-                                    <p>Instructor (Collaborative Robot Programming Level III)</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="profile-div">
-                            <h2>Skills</h2>
-                            <div class="split-content">
-                                <div>
-                                    <ul>
-                                        <li>Java</li>
-                                        <li>C#</li>
-                                        <li>C++ (Arduino)</li>
-                                        <li>SQL</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>HTML</li>
-                                        <li>CSS</li>
-                                        <li>Python</li>
-                                        <li>DRL (Doosan Robot Language)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="profile-div">
-                            <h2>Educational Background</h2>
-                            <div>
-                                <div class="main-content-div left">
-                                    <ul>
-                                        <li>
-                                            <p>Bachelor of Science in Computer Engineering <br>STI College - Malolos | Cum Laude</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="side-content-div right">
-                                    <p class="right">2020 - 2024</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="profile-experience">
+                    <h1>Job Experience</h1>
+                    <ul>
+                        <li>
+                            <p>Oct 2024 - April 2025<br>
+                            Southern Institute of Maritime Studies </p><hr>
+                            <p>Instructor (Collaborative Robot Programming Level III)</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="side-div">
-                    <img id="profile-img" src="assests/img/Img-Profile.jpg">
+                <div id="profile-skills">
+                    <h1>Skills</h1>
                 </div>
-            </section>
-            <section id="projects">
-                <div>
-                    <h1>Projects</h1><br>
+            </div>
+            <div id="profile-image-div">
+                <img id="profile-image" src="assets/img/Img-Profile.jpg">
+            </div>
+        </section>
+        <section id="portfolio-section">
+            <div id="portfolio-main-div">
+                <div class="length-toggles">
+                    <button id="portfolio-btn-certificates" class="portfolio-btn active">Certificates</button>
+                    <button id="portfolio-btn-projects" class="portfolio-btn">Projects</button>
                 </div>
-                <div class="project-tile-div">
-                    <div class="project-tile">
-                        <a href="SurveyForm.html" target="_blank">
-                            <img src="assests/img/Img-SurveyForm.png"><br>
-                            <b>Survey Form</b><br>
-                            <p>Survey Form to collect data from your users</p>
-                        </a>
-                    </div>
-                    <div class="project-tile">
-                        <a href="TributePage.html" target="_blank">
-                            <img src="assests/img/Img-TributePage.png"><br>
-                            <b>Tribute Page</b><br>
-                            <p>Tribute Page for the National Hero of the Philippines</p>
-                        </a>
-                    </div>
-                    <div class="project-tile">
-                        <a href="TechnicalDocumentation.html" target="_blank">
-                            <img src="assests/img/Img-TechnicalDocumentation.png"><br>
-                            <b>Technical Documentation</b><br>
-                            <p>Technical Documentation for the Robot Cell which includes Doosan Cobot, PLC, and DRL instructions</p>
-                        </a>
-                    </div>
-                    <div class="project-tile">
-                        <a href="ProductLandingPage.html" target="_blank">
-                            <img src="assests/img/Img-ProductLandingPage.png"><br>
-                            <b>Product Landing Page</b><br>
-                            <p>Product Landing Page for Samsung Galaxy A34 5G</p>
-                        </a>
-                    </div>
+                <div class="content-blocks">
+                    <div id="portfolio-certificates" class="portfolio-content active"></div>
+                    <div id="portfolio-project" class="portfolio-content"></div>
+                    <div id="content-pagination" class="pagination-dots"></div>
                 </div>
-            </section>
-            <section id="certificate">
-                <div>
-                    <h1>Certificates</h1><br>
-                </div>
-                <div class="certificate-tile-div">
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertResponsiveWebDesign.png"><br>
-                        <p><b>FreeCodeCamp: Responsive Web Design</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertTrainorCertificationCobot.png"><br>
-                        <p><b>Trainor Certification Collaborative Robot Program</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertCobotSystemIntegration.png"><br>
-                        <p><b>Cobot System Integration</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertCollaborativeRobotProgram.png"><br>
-                        <p><b>Collaborative Robot Program</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertJava.png"><br>
-                        <p><b>Sololearn: Java</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertCodingFoundations.png"><br>
-                        <p><b>Sololearn: Coding Foundationgs</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertWebDevelopment.png"><br>
-                        <p><b>Sololearn: Web Development</b></p><br>
-                    </div>
-                    <div class="certificate-tile">
-                        <img src="assests/img/Img-CertSQL.png"><br>
-                        <p><b>Sololearn: SQL</b></p><br>
-                    </div>
-                </div>
-            </section>
-            <section id="socials">
-                <div>
-                    <h1>Let's Work Together!</h1>
-                    <div class="socials-div">
-                        <div>
-                            <a id="profile-link" href="https://www.facebook.com/Shirisaki.20020822/" target="_blank">
-                                <img src="assests/icon/Icn-Facebook.png" alt="Facebook Icon"> Facebook
-                            </a>
-                        </div>
-                        <div>
-                            <a href="https://github.com/RevinSicat" target="_blank">
-                                <img src="assests/icon/Icn-Github.png" alt="GitHub Icon"> GitHub
-                            </a>
-                        </div>
-                        <div>
-                            <a href="https://www.linkedin.com/in/revin-sicat-619059296/" target="_blank">
-                                <img src="assests/icon/Icn-LinkedIn.png" alt="LinkedIn Icon"> LinkedIn
-                            </a>
-                        </div>
-                        <div class="secondrow-socials">
-                            <div class="socials-div-nolink">
-                                <img src="assests/icon/Icn-Mail.png" alt="Mail Icon">SicatRevin@outlook.com
-                            </div>
-                            <div class="socials-div-nolink">
-                                <img src="assests/icon/Icn-Phone.png" alt="LinkedIn Icon">(+63) 908-716-6378
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>            
-        </main>
+            </div>
+        </section>
+        <section id="socials-section">
+                <h1>Let's Work Together!</h1>
+            <div class="socials-links-rowOne">
+                <a href="https://www.facebook.com/Shirisaki.20020822/" target="_blank">
+                    <img src="assets/icon/Icn-Facebook.png" alt="Facebook icon">Facebook
+                </a>
+                <a href="https://github.com/RevinSicat" target="_blank">
+                    <img src="assets/icon/Icn-Github.png" alt="Github icon">Github
+                </a>
+                <a href="https://www.linkedin.com/in/revin-sicat-619059296" target="_blank">
+                    <img src="assets/icon/Icn-LinkedIn.png" alt="LinkedIn icon">LinkedIn
+                </a>
+            </div>
+            <div class="socials-links-rowTwo">
+                <a>
+                    <img src="assets/icon/Icn-Mail.png" alt="Mail icon">SicatRevin@outlook.com
+                </a>
+                <a>
+                    <img src="assets/icon/Icn-Phone.png" alt="Phone icon">(+63) 908-716-6378
+                </a>
+            </div>
+        </section>
+    <script src="script.js"></script>
     </body>
 </html>

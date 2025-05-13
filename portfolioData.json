@@ -1,0 +1,161 @@
+{
+    "skills": [
+        {"name": "Java"},
+        {"name": "C++ (Arduino)"},
+        {"name": "SQL"},
+        {"name": "DRL (Doosan Robot Language)"},
+        {"name": "PLC Ladder Logic"},
+        {"name": "Python"},
+        {"name": "HTML"},
+        {"name": "CSS"},
+        {"name": "JS"},
+        {"name": "C#"}
+    ],
+    "upskilling": [
+        {"name": "Bootstrap"},
+        {"name": "jQuery"},
+        {"name": "SASS"},
+        {"name": "React"},
+        {"name": "Redux"}
+    ],
+    "projects": [
+    {
+        "name": "PRG Creatures Search API",
+        "description": "Certification Project: Search app that uses API to search for RPG creatures",
+        "img": "/assets/img/Img-Prj-RpgCreaturesAPI.png",
+        "skills": [
+            { "name": "HTML" },
+            { "name": "CSS" },
+            { "name": "JS" }
+        ]
+    },
+    {
+        "name": "Cash Register Web App",
+        "description": "Certification Project: Cash register that automatically checks and compute if the availability of the exact change",
+        "img": "/assets/img/Img-Prj-CashRegisterWebApp.png",
+        "skills": [
+            { "name": "HTML" },
+            { "name": "CSS" },
+            { "name": "JS" }
+        ]
+    },
+    {
+        "name": "Technical Documentation Website",
+        "description": "Certification Project: Technical Documentation for the Robot Cell which includes Doosan Cobot, PLC, and DRL instructions",
+        "img": "/assets/img/Img-Prj-RobotCellTechnicalDocumentation.png",
+        "skills": [
+            { "name": "HTML" },
+            { "name": "CSS" }
+        ]
+    },
+    {
+        "name": "Product Landing Page",
+        "description": "Certification Project: Self attempt on the product landing page for Samsung Galaxy A34 5G",
+        "img": "/assets/img/Img-Prj-ProductLandingPage.png",
+        "skills": [
+            { "name": "HTML" },
+            { "name": "CSS" }
+        ]
+    },
+    {
+        "name": "Collaborative Robot - PLC - HMI Integration",
+        "description": "A Collaborative Robot Algorithm integrating PLC and HMI to sort tacks into user-defined arrangements.",
+        "img": "/assets/img/Img-Prj-CobotPlcHmi.png",
+        "skills": [
+            { "name": "DRL (Doosan Robot Language)" },
+            { "name": "PLC Ladder Logic" }
+        ]
+    },
+    {
+        "name": "RFID Library Management System",
+        "description": "uses RFID technology for a swift and easy borrowing and returning of books.",
+        "img": "/assets/img/Img-Prj-RfidLms.png",
+        "skills": [
+            { "name": "Java" }
+        ]
+    },
+    {
+        "name": "Point of Sales System/Inventory ",
+        "description": "An Inventory Management and Point of Sales Systems for a mini business to use in tracking receipts, item stock, adjust prices and more.",
+        "img": "/assets/img/Img-Prj-POS.png",
+        "skills": [
+            { "name": "Java" }
+        ]
+    }
+    ],
+    "certificates": [
+        {
+            "name": "Foundational C# with Microsoft",
+            "img": "/assets/img/Img-Cert-CSharp.png",
+            "skills": [
+                { "name": "C#" }
+            ]
+        },
+        {
+            "name": "JavaScript Algorithms and Data Structures",
+            "img": "/assets/img/Img-Cert-Javascript.png",
+            "skills": [
+                { "name": "JS" }
+            ]
+        },
+        {
+            "name": "Responsive Web Design",
+            "img": "/assets/img/Img-Cert-HtmlCss.png",
+            "skills": [
+                { "name": "HTML" },
+                { "name": "CSS"}
+            ]
+        },
+        {
+            "name": "Sololearn: Java",
+            "img": "/assets/img/Img-Cert-Java.png",
+            "skills": [
+                { "name": "Java" }
+            ]
+        },
+        {
+            "name": "Sololearn: Python",
+            "img": "/assets/img/Img-Cert-CodingFoundations.png",
+            "skills": [
+                { "name": "Python" }
+            ]
+        },
+        {
+            "name": "Trainer Certification Workshop on Cobot System Integration Training",
+            "img": "/assets/img/Img-Cert-CobotSys.png",
+            "skills": [
+                { "name": "PLC Ladder Logic" }
+            ]
+        },
+        {
+            "name": "Collaborative Robot Program",
+            "img": "/assets/img/Img-Cert-CobotProgram.png",
+            "skills": [
+                { "name": "DRL (Doosan Robot Language)" }
+            ]
+        },
+        {
+            "name": "Sololearn: SQL",
+            "img": "/assets/img/Img-Cert-SQL.png",
+            "skills": [
+                { "name": "SQL" }
+            ]
+        },
+        {
+            "name": "Sololearn: Web Development",
+            "img": "/assets/img/Img-Cert-WebDev.png",
+            "skills": [
+                { "name": "HTML" },
+                { "name": "CSS" },
+                { "name": "JS" }
+            ]
+        },
+        {
+            "name": "Trainer Certification Workshop for Collaborative Robot Program",
+            "img": "/assets/img/Img-Cert-TrainorCobot.jpg",
+            "skills": [
+                { "name": "DRL (Doosan Robot Language)" }
+            ]
+        }
+    ]
+}
